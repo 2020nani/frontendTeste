@@ -1,6 +1,6 @@
 import React,{useState}  from 'react';
 import {Chart} from 'react-google-charts'
-import {Container} from '../Home/styles'
+import {Container,Grafico,Tabela} from '../Home/styles'
 
 export default function Home() {
   const [options, setOptions] = useState({
@@ -10,11 +10,12 @@ export default function Home() {
     ['nome', 'participacao'],
     ['hernani', 100],
     ['junior', 90],
-    ['vania', 110]
+    ['vania', 110],
+    ['mauro',90]
   ])
   return (
    <Container>
-     <div>
+     <Tabela>
      <table>
        <tr>
          <td></td>
@@ -29,16 +30,16 @@ export default function Home() {
          <td>20%</td>
        </tr>
      </table>
-     </div>
-     <div>
+     </Tabela>
+     <Grafico>
       <Chart
-      width={'500px'}
-      height={'300px'}
+      width={'20vw'}
+      height={'20vh'}
       chartType="PieChart"
       data={data}
       options={options}
       />
-     </div>
+     </Grafico>
    </Container>
      
   );

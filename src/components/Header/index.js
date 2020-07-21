@@ -5,11 +5,15 @@ export default function Header() {
   
   return (
     <Container>
+      
+     <form action="">
      <input type="text" placeholder="firstname"/>
      <input type="text" placeholder="lastname"/>
      <input type="text" placeholder="participation"/>
      <button type="button">Send</button>
-     <button type="button">Atualizar</button>
+     
+     </form>
+     
     </Container>
   );
 }
