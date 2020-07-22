@@ -1,10 +1,11 @@
 import React,{useState}  from 'react';
 import {Chart} from 'react-google-charts'
-import {Container,Grafico,Tabela} from '../Home/styles'
+import {Container,Grafico,Tabela,Session} from '../Home/styles'
 
 export default function Home() {
   const [options, setOptions] = useState({
-    title: 'Grafico de participacao'
+    title: 'Grafico de participacao',
+    is3D: true
   })
   const [data,setData] = useState([
     ['nome', 'participacao'],
@@ -15,13 +16,28 @@ export default function Home() {
   ])
   return (
    <Container>
-     <Tabela>
+     <h1>DATA</h1>
+     <p>lorem ipsum dolor sit amet consectetuer adipiscing elit</p>
+   <Session> 
+    <Tabela>
      <table>
        <tr>
-         <td></td>
-         <td>FirstName</td>
-         <td>LastName</td>
-         <td>Participation</td>
+         <th></th>
+         <th>FirstName</th>
+         <th>LastName</th>
+         <th>Participation</th>
+       </tr>
+       <tr>
+         <td>1</td>
+         <td>Hernani</td>
+         <td>Almeida</td>
+         <td>20%</td>
+       </tr>
+       <tr>
+         <td>1</td>
+         <td>Hernani</td>
+         <td>Almeida</td>
+         <td>20%</td>
        </tr>
        <tr>
          <td>1</td>
@@ -33,13 +49,13 @@ export default function Home() {
      </Tabela>
      <Grafico>
       <Chart
-      width={'20vw'}
-      height={'20vh'}
+      width={'100%'}
       chartType="PieChart"
       data={data}
       options={options}
       />
      </Grafico>
+     </Session>
    </Container>
      
   );
