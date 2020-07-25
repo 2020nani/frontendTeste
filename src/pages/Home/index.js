@@ -65,12 +65,12 @@ export default function Home() {
               <th>Atualizar </th>
               <th>Deletar</th>
             </tr>
-            {dados.map(data => (
+            {dados.map((data,index) => (
               <tr>
-                <td>{data.id}</td>
+                <td>{index+1}</td>
                 <td>{data.firstname}</td>
                 <td>{data.lastname}</td>
-                <td>{data.participation}</td>
+                <td>{data.participation+'%'}</td>
                 <td >
                   <form onSubmit={handleSubmite}>
                     <input name="firstname" type="text" placeholder="firstname" onChange={e => setFirstname(e.target.value
@@ -79,7 +79,7 @@ export default function Home() {
                     )} />
                     <input name="participation" type="text" placeholder="participation" onChange={e => setParticipation(e.target.value
                     )} />
-                    <Link id="link" to='/modal'>
+                    <Link id="link" to='/modalupdate'>
                       <button id="update" type="button" onClick={() => handleSubmite(data.id)}></button>
                       <MdPersonAdd size={30} color="#7159c1" />
                     </Link>
