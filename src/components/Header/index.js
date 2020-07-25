@@ -1,35 +1,48 @@
-import React, {useState,useEffect}from 'react';
-import {Form, Input} from '@rocketseat/unform'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
-import {Container} from '../Header/styles';
+import { Container } from '../Header/styles';
 import * as Yup from 'yup';
 
 const schema = Yup.object().shape({
   firstname: Yup.string()
-  .required('Firstname e obrigatorio'),
+    .required('Firstname e obrigatorio'),
   lastname: Yup.string()
-  .required('Lastname e obrigatorio'),
+    .required('Lastname e obrigatorio'),
   participation: Yup.number()
-  .integer('Apenas numeros')
-  .required('participation e obrigatorio')
+    .required('participation e obrigatorio'),
 })
 export default function Header() {
-  
-  function handleSubmit(data) {
-    console.log(data)
+  const [firstname, setFirstname] = useState()
+  const [lastname, setLastname] = useState()
+  const [participation, setParticipation] = useState()
+
+  function handleSubmite(event) {
+   
+    const response =  api.post('dados' , {
+      firstname,
+      lastname,
+      participation
+     }) 
+    
   }
-  
+
   return (
+
     <Container>
-      
-     <Form schema={schema} onSubmit={handleSubmit}>
-     <Input name="firstname" type="text" placeholder="firstname"/>
-     <Input name="lastname" type="text" placeholder="lastname"/>
-     <Input name="participation" type="text" placeholder="participation"/>
-     <button type="button">Send</button>
-     
-     </Form>
-     
+
+<form onSubmit={handleSubmite}>
+          <input name="firstname" type="text" placeholder="firstname" onChange={e => setFirstname(e.target.value
+            )} />
+          <input name="lasttname" type="text" placeholder="lastname"  onChange={e => setLastname(e.target.value
+            )} />
+          <input name="participation" type="text" placeholder="participation"  onChange={e => setParticipation(e.target.value
+            )} />
+            <Link to = '/modal'>
+        <button type="button" onClick={()=>handleSubmite()}>enviar</button> 
+            </Link>
+      </form> 
+
     </Container>
   );
 }
