@@ -21,10 +21,10 @@ input{
   text-transform:capitalize;
   border:0;
   border-radius:4px;
-  width:20vw;
+  width:15vw;
   height: 5vh;
   padding:0 15px;
-  margin-left:4vw;
+  margin-left:1vw;
   font-size:2vw
 }
 button{
@@ -44,6 +44,10 @@ button{
     outline:none;
   }
 }
-
+ #link{
+   text-decoration:none
+ }
 `
+
+
 

@@ -31,14 +31,14 @@ export default function Header() {
 
     <Container>
 
-<form onSubmit={handleSubmite}>
+<form  onSubmit={handleSubmite} schema={schema}>
           <input name="firstname" type="text" placeholder="firstname" onChange={e => setFirstname(e.target.value
             )} />
           <input name="lasttname" type="text" placeholder="lastname"  onChange={e => setLastname(e.target.value
             )} />
           <input name="participation" type="text" placeholder="participation"  onChange={e => setParticipation(e.target.value
             )} />
-            <Link to = '/modal'>
+            <Link id="link" to = '/modal'>
         <button type="button" onClick={()=>handleSubmite()}>enviar</button> 
             </Link>
       </form> 
